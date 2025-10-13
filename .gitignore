@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*.bak
+*.swo
+
+# Jupyter Notebook specific files
+.ipynb_checkpoints/
+*.ipynb_checkpoints/
+
+# Data and Models
+# Large datasets and trained models should generally not be version controlled directly.
+# Instead, consider using data versioning tools like DVC or storing them in cloud storage.
+data/
+datasets/
+models/
+checkpoints/
+*.pkl
+*.pth
+*.pt
+*.h5
+*.tf
+*.onnx
+*.joblib
+*.npy
+*.npz
+
+# Logs and temporary files
+logs/
+tmp/
+temp/
+*.log
+*.temp
+*.tmp
+
+# Result files
+results/
+outputs/
+predictions/
+
+# Environment variables and sensitive information
+.env
+*.env
+config.ini
+secrets.py
+credentials.json
