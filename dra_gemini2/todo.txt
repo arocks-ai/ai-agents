@@ -1,0 +1,24 @@
+Todo
+------
+run locally using adk tool
+Test with various prompts
+deploy to gcp environment
+
+
+Move to Humana system
+Implement logging
+Deploy from Humana system 
+Design diagram 
+restrucure the files/directories
+
+One project limitation - can be expanded to multiple projects
+
+
+
+Hackathon
+--------------
+Update .env
+deploy 
+
+
+

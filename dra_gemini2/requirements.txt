@@ -1,0 +1,31 @@
+# --- Core AI Agent Dependencies ---
+
+# Google Agent Development Kit (ADK)
+# This is required for creating and running the agent on GCP.
+# The latest version is generally compatible with Python 3.8 to 3.12+.
+google-adk
+
+# Pydantic
+# Used for data validation and defining structured output schemas for tools.
+# V2 is the latest and recommended for Python 3.12.
+# Use version 2.7.4 or later for best compatibility with Python 3.12.
+# For Python 3.11, V2 is also recommended.
+pydantic>=2.7.4
+
+# --- Python Version Notes ---
+
+# NOTE for Python 3.12: The versions above (latest stable for both) are fully compatible.
+# Simply run: pip install -r requirements.txt
+
+# NOTE for Python 3.11: The versions above (latest stable for both) are also compatible.
+# If you encounter issues with very recent patches, you might temporarily pin to:
+# pydantic==2.6.4 # (Example of a known stable version for 3.11)
+# google-adk==0.1.0 # (Replace with the latest stable version if unpinned fails)
+
+# --- Other common dependencies (Optional but often useful) ---
+
+# Used for running the main agent script locally
+# asyncio
+
+# For reading environment variables (like GOOGLE_API_KEY)
+# python-dotenv
