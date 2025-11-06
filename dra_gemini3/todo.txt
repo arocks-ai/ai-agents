@@ -1,0 +1,27 @@
+Todo (as per dra_gemini3)
+--------------------------
+Implement Multi agent 
+Improve performance 
+More testing with prompts
+Implement logging
+Deploy to vertex AI 
+Design diagram 
+One project limitation - can be expanded to multiple projects
+
+done - run locally using adk tool
+done - run adk web and fix file path issue
+done - added test cases 
+done - Test with various prompts
+done - deploy to gcp environment
+done - check into github
+done - workaround to skip warnings
+
+
+
+Hackathon
+--------------
+Update .env
+deploy 
+
+
+

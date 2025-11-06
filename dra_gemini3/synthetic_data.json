@@ -1,0 +1,74 @@
+{
+  "Work_Items": [
+    {
+      "id": 1001,
+      "title": "Critical Bug: Login fails on mobile devices",
+      "type": "Bug",
+      "state": "Active",
+      "priority": 1,
+      "assignee": "alice@example.com",
+      "tags": ["mobile", "critical"],
+      "is_blocking": true,
+      "acceptance_criteria": "User must be able to log in on iOS and Android.",
+      "url": "https://ado.fake/wi/1001"
+    },
+    {
+      "id": 1002,
+      "title": "Feature: New Product Page",
+      "type": "Feature",
+      "state": "Closed",
+      "priority": 2,
+      "assignee": "bob@example.com",
+      "tags": ["frontend"],
+      "is_blocking": false,
+      "acceptance_criteria": "Product details are displayed correctly.",
+      "url": "https://ado.fake/wi/1002"
+    }
+  ],
+  "Pipelines": [
+    {
+      "pipeline_id": 42,
+      "pipeline_name": "Deployment-to-Prod",
+      "last_n_runs": [
+        {
+          "build_id": 901,
+          "status": "Failed",
+          "duration_seconds": 360,
+          "failing_stages": ["Integration-Tests", "Security-Scan"],
+          "artifacts": ["none"]
+        },
+        {
+          "build_id": 900,
+          "status": "Succeeded",
+          "duration_seconds": 450,
+          "failing_stages": [],
+          "artifacts": ["prod-artifact-v1.2.3"]
+        }
+      ]
+    }
+  ],
+  "Security_Findings": {
+    "vulnerabilities_by_severity": {
+      "Critical": 2,
+      "High": 5,
+      "Medium": 12,
+      "Low": 30
+    },
+    "unresolved_count": 7
+  },
+  "Test_Results": {
+    "build_id": 901,
+    "pass_percent": 85.0,
+    "failing_tests_list": ["Auth.Login.MobileTest", "Service.APIPerformance"],
+    "flaky_tests_flagged": ["UI.HeaderLoad"]
+  },
+  "Deployment_History": {
+    "staging": "2025-11-01T10:00:00Z",
+    "prod": "2025-10-15T14:30:00Z"
+  },
+  "Release_Approvals": {
+    "CAB_signoff": "Approved",
+    "manual_approval_prod": "Pending"
+  }
+}
+
