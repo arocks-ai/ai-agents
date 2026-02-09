@@ -1,10 +1,10 @@
-# ai-agents
+# ai-agents using google ADK
 
 
 
 
 
-## Remote Agent2Agent Communication ![Link](./15-day5-agent2agent/agent.py)
+## Remote Agent2Agent Communication ![Link](./15-day5-agent2agent/README.md)
 
 This demo Demonstrates
 
