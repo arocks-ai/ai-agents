@@ -1,0 +1,6 @@
+python-dotenv   # For reading environment variables (like GOOGLE_API_KEY)
+google-adk[a2a]
+google-genai
+
+
+pydantic>=2.7.4

@@ -1,7 +1,5 @@
 import os
 from dotenv import load_dotenv
-from fastapi import FastAPI
-
 
 from google.adk.agents import LlmAgent
 from google.adk.agents.remote_a2a_agent import (
@@ -15,13 +13,11 @@ from google.adk.models.google_llm import Gemini
 from google.genai import types
 print("✅ ADK components imported successfully.")
 
-
-app = FastAPI()
-
 load_dotenv()  # Load environment variables from .env file if it exists
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")  # Ensure the environment variable is set
 
 if not GOOGLE_API_KEY:
+#if not all("GOOGLE_API_KEY", "GOOGLE_API_KEY2"):    
     print("⚠️ Warning: 'GOOGLE_API_KEY' is not set. Please add it to your .env file for the agent to function properly.")
     exit(1)
 print("✅ Authentication completed.")
@@ -94,18 +90,17 @@ print("   Ready to be exposed via A2A...")
 #   1. Serves the agent at the A2A protocol endpoints
 #   2. Provides an auto-generated agent card
 #   3. Handles A2A communication protocol
-product_catalog_a2a_app = to_a2a(
+a2a_app = to_a2a(
     product_catalog_agent, port=8001  # Port where this agent will be served
 )
 
-
 # Run uvicorn to serve the agent application
-#        uvicorn agent-expose:app --host localhost --port 8001
+#         uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001
+# 
+# curl http://localhost:8001/.well-known/agent-card.json
 
 print("✅ Product Catalog Agent is now A2A-compatible!")
 print("   Agent will be served at: http://localhost:8001")
 print("   Agent card will be at: http://localhost:8001/.well-known/agent-card.json")
 print("   Ready to start the server...")
 
-
-a2a_app = to_a2a(product_catalog_agent, port=8001)

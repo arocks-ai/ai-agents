@@ -1,0 +1,106 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.3.4">
+  <diagram name="Page-1" id="NsyUuV8bxB908uj5PdEH">
+    <mxGraphModel dx="1181" dy="617" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--4" edge="1" parent="1" source="pCdwKgdvbuqi6aWxMIN--2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pCdwKgdvbuqi6aWxMIN--3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--5" connectable="0" parent="pCdwKgdvbuqi6aWxMIN--4" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontStyle=1" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;A2A&lt;/font&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.2365" y="6" as="geometry">
+            <mxPoint x="4" y="-24" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Customer Support Agent&lt;br&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 153), rgb(37, 102, 168));&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;&quot;&gt;Local to our&amp;nbsp;company&lt;br&gt;localhost: 8000&lt;/font&gt;&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="150" y="82.5" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--3" parent="1" style="whiteSpace=wrap;html=1;rounded=1;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Product Catalog Agent&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;color: rgb(0, 0, 153);&quot;&gt;External Service&lt;br&gt;localhost: 8001&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="125" width="230" x="670" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=18;" value="Externer Vendor" vertex="1">
+          <mxGeometry height="30" width="190" x="700" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=18;" value="Consumer Agent" vertex="1">
+          <mxGeometry height="30" width="190" x="175" y="205" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--8" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=24;" value="Remote Agent2Agent Communication" vertex="1">
+          <mxGeometry height="30" width="500" x="230" y="30" as="geometry" />
+        </mxCell>
+        <UserObject label="uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001" link="uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001" id="pCdwKgdvbuqi6aWxMIN--9">
+          <mxCell parent="1" style="text;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="40" width="500" x="570" y="235" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--10" edge="1" parent="1" source="pCdwKgdvbuqi6aWxMIN--13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.013;entryY=0.702;entryDx=0;entryDy=0;exitX=0.001;exitY=0.701;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" target="pCdwKgdvbuqi6aWxMIN--12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--22" connectable="0" parent="pCdwKgdvbuqi6aWxMIN--10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="Product Data" vertex="1">
+          <mxGeometry relative="1" x="-0.1699" y="-1" as="geometry">
+            <mxPoint x="-10" y="-17" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;Customer Support Agent&lt;br&gt;&lt;font style=&quot;color: light-dark(rgb(0, 0, 153), rgb(37, 102, 168));&quot;&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;&quot;&gt;Local to our&amp;nbsp;company&lt;br&gt;localhost: 8000&lt;/font&gt;&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="320" y="322.5" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--13" parent="1" style="whiteSpace=wrap;html=1;rounded=1;align=center;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;Product Catalog Agent&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;font style=&quot;color: rgb(0, 0, 153);&quot;&gt;External Service&lt;br&gt;localhost: 8001&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="125" width="230" x="660" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--15" edge="1" parent="1" source="pCdwKgdvbuqi6aWxMIN--14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#000000;exitX=0.962;exitY=0.291;exitDx=0;exitDy=0;exitPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="359" as="sourcePoint" />
+            <mxPoint x="320" y="358.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--18" connectable="0" parent="pCdwKgdvbuqi6aWxMIN--15" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="Query" vertex="1">
+          <mxGeometry relative="1" x="-0.2239" y="2" as="geometry">
+            <mxPoint y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--14" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="115" width="104" x="120" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--17" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;b&gt;Customer&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="150" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--19" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#f8cecc;strokeColor=#000000;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="360" as="sourcePoint" />
+            <mxPoint x="660" y="360.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--20" connectable="0" parent="pCdwKgdvbuqi6aWxMIN--19" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="A2A Protocol" vertex="1">
+          <mxGeometry relative="1" x="-0.2239" y="2" as="geometry">
+            <mxPoint x="11" y="-16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--24" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.013;entryY=0.702;entryDx=0;entryDy=0;exitX=0.001;exitY=0.701;exitDx=0;exitDy=0;exitPerimeter=0;entryPerimeter=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="320" y="411" as="sourcePoint" />
+            <mxPoint x="223" y="410" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pCdwKgdvbuqi6aWxMIN--25" connectable="0" parent="pCdwKgdvbuqi6aWxMIN--24" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="Response" vertex="1">
+          <mxGeometry relative="1" x="-0.1699" y="-1" as="geometry">
+            <mxPoint x="-9" y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <UserObject label="python agent" link="uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001" id="pCdwKgdvbuqi6aWxMIN--27">
+          <mxCell parent="1" style="text;whiteSpace=wrap;html=1;" vertex="1">
+            <mxGeometry height="17.5" width="130" x="210" y="235" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="$  python agent&#xa;✅ Authentication completed.&#xa;📋 Product Catalog Agent Card:       {....}&#xa;&#xa;✨ Key Information:&#xa;   Name: product_catalog_agent&#xa;   Description: External vendor&#39;s product catalog agent that provides product information and availability.&#xa;   URL: http://localhost:8001&#xa;   Skills: 2 capabilities exposed&#xa;✅ Remote Product Catalog Agent proxy created!&#xa;   Connected to: http://localhost:8001&#xa;   Agent card: http://localhost:8001/.well-known/agent-card.json&#xa;   The Customer Support Agent can now use this like a local sub-agent!&#xa;✅ Customer Support Agent created!&#xa;   Model: gemini-2.5-flash-lite&#xa;   Sub-agents: 1 (remote Product Catalog Agent via A2A)&#xa;   Ready to help customers!&#xa;🧪 Testing A2A Communication...&#xa;&#xa;👤 Customer: I&#39;m looking for a laptop. Can you compare the Dell XPS 15 and MacBook Pro 14 for me?&#xa;&#xa;🎧 Support Agent response:&#xa;------------------------------------------------------------&#xa;The Dell XPS 15 is priced at $1,299 and is currently in stock with 45 units available. It features a 15.6&quot; display, 16GB of RAM, and a 512GB SSD.&#xa;&#xa;The MacBook Pro 14&quot; is priced at $1,999 and is also in stock with 22 units available. It comes with an M3 Pro chip, 18GB of RAM, and a 512GB SSD." link="$  python agent&#xa;✅ Authentication completed.&#xa;📋 Product Catalog Agent Card:&#xa;{....}&#xa;&#xa;&#xa;✨ Key Information:&#xa;   Name: product_catalog_agent&#xa;   Description: External vendor&#39;s product catalog agent that provides product information and availability.&#xa;   URL: http://localhost:8001&#xa;   Skills: 2 capabilities exposed&#xa;✅ Remote Product Catalog Agent proxy created!&#xa;   Connected to: http://localhost:8001&#xa;   Agent card: http://localhost:8001/.well-known/agent-card.json&#xa;   The Customer Support Agent can now use this like a local sub-agent!&#xa;✅ Customer Support Agent created!&#xa;   Model: gemini-2.5-flash-lite&#xa;   Sub-agents: 1 (remote Product Catalog Agent via A2A)&#xa;   Ready to help customers!&#xa;🧪 Testing A2A Communication...&#xa;&#xa;&#xa;&#xa;&#xa;👤 Customer: I&#39;m looking for a laptop. Can you compare the Dell XPS 15 and MacBook Pro 14 for me?&#xa;&#xa;&#xa;🎧 Support Agent response:&#xa;------------------------------------------------------------&#xa;The Dell XPS 15 is priced at $1,299 and is currently in stock with 45 units available. It features a 15.6&quot; display, 16GB of RAM, and a 512GB SSD.&#xa;&#xa;&#xa;The MacBook Pro 14&quot; is priced at $1,999 and is also in stock with 22 units available. It comes with an M3 Pro chip, 18GB of RAM, and a 512GB SSD." id="pCdwKgdvbuqi6aWxMIN--28">
+          <mxCell parent="1" style="text;whiteSpace=wrap;fontSize=9;" vertex="1">
+            <mxGeometry height="330" width="470" x="80" y="470" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="$ python  uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001&#xa;✅ ADK components imported successfully.&#xa;✅ Authentication completed.&#xa;✅ Product Catalog Agent created successfully!&#xa;   Model: gemini-2.5-flash-lite&#xa;   Tool: get_product_info()&#xa;   Ready to be exposed via A2A...&#xa;✅ Product Catalog Agent is now A2A-compatible!&#xa;   Agent will be served at: http://localhost:8001&#xa;   Agent card will be at: http://localhost:8001/.well-known/agent-card.json&#xa;   Ready to start the server...&#xa;INFO:     Started server process [24373]&#xa;INFO:     Waiting for application startup.&#xa;INFO:     Application startup complete.&#xa;INFO:     Uvicorn running on http://localhost:8001 (Press CTRL+C to quit)&#xa;INFO:     ::1:49188 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:49202 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;Warning: there are non-text parts in the response: [&#39;function_call&#39;, &#39;function_call&#39;], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.&#xa;INFO:     ::1:49202 - &quot;POST / HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:51704 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:51714 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:51714 - &quot;POST / HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:50814 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:50816 - &quot;GET /.well-known/agent-card.json HTTP/1.1&quot; 200 OK&#xa;INFO:     ::1:50816 - &quot;POST / HTTP/1.1&quot; 200 OK&#xa;" link="$  python agent&#xa;✅ Authentication completed.&#xa;📋 Product Catalog Agent Card:&#xa;{....}&#xa;&#xa;&#xa;✨ Key Information:&#xa;   Name: product_catalog_agent&#xa;   Description: External vendor&#39;s product catalog agent that provides product information and availability.&#xa;   URL: http://localhost:8001&#xa;   Skills: 2 capabilities exposed&#xa;✅ Remote Product Catalog Agent proxy created!&#xa;   Connected to: http://localhost:8001&#xa;   Agent card: http://localhost:8001/.well-known/agent-card.json&#xa;   The Customer Support Agent can now use this like a local sub-agent!&#xa;✅ Customer Support Agent created!&#xa;   Model: gemini-2.5-flash-lite&#xa;   Sub-agents: 1 (remote Product Catalog Agent via A2A)&#xa;   Ready to help customers!&#xa;🧪 Testing A2A Communication...&#xa;&#xa;&#xa;&#xa;&#xa;👤 Customer: I&#39;m looking for a laptop. Can you compare the Dell XPS 15 and MacBook Pro 14 for me?&#xa;&#xa;&#xa;🎧 Support Agent response:&#xa;------------------------------------------------------------&#xa;The Dell XPS 15 is priced at $1,299 and is currently in stock with 45 units available. It features a 15.6&quot; display, 16GB of RAM, and a 512GB SSD.&#xa;&#xa;&#xa;The MacBook Pro 14&quot; is priced at $1,999 and is also in stock with 22 units available. It comes with an M3 Pro chip, 18GB of RAM, and a 512GB SSD." id="pCdwKgdvbuqi6aWxMIN--29">
+          <mxCell parent="1" style="text;whiteSpace=wrap;fontSize=9;" vertex="1">
+            <mxGeometry height="310" width="400" x="560" y="470" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

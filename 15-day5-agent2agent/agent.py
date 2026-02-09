@@ -1,23 +1,30 @@
 import requests
 import json
 import uuid
+import os
+from dotenv import load_dotenv
 
 from google.adk.agents.remote_a2a_agent import AGENT_CARD_WELL_KNOWN_PATH
 from google.adk.agents.remote_a2a_agent import RemoteA2aAgent
-
 from google.genai import types
 
-
 from google.adk.agents import LlmAgent
-# from google.adk.agents.remote_a2a_agent import (
-#     RemoteA2aAgent,
-#     AGENT_CARD_WELL_KNOWN_PATH,
-# )
-
-# from google.adk.a2a.utils.agent_to_a2a import to_a2a
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.adk.models.google_llm import Gemini
+
+
+
+# Load environment variables from .env
+load_dotenv() 
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")  # Ensure the environment variable is set
+
+if not GOOGLE_API_KEY:
+#if not all("GOOGLE_API_KEY", "GOOGLE_API_KEY2"):    
+    print("⚠️ Warning: 'GOOGLE_API_KEY' is not set. Please add it to your .env file for the agent to function properly.")
+    exit(1)
+print("✅ Authentication completed.")
+
 
 # Fetch the agent card from the running server
 try:
@@ -64,8 +71,6 @@ print("✅ Remote Product Catalog Agent proxy created!")
 print(f"   Connected to: http://localhost:8001")
 print(f"   Agent card: http://localhost:8001{AGENT_CARD_WELL_KNOWN_PATH}")
 print("   The Customer Support Agent can now use this like a local sub-agent!")
-
-
 
 
 
@@ -151,6 +156,8 @@ async def test_a2a_communication(user_query: str):
 
     print("-" * 60)
 
+
+# Invoke the agent
 print("🧪 Testing A2A Communication...\n")
 import asyncio
 # asyncio.run(test_a2a_communication("Can you tell me about the iPhone 15 Pro? Is it in stock?"))
