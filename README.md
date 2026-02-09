@@ -4,7 +4,7 @@
 
 
 
-## Remote Agent2Agent Communication ![Link](./15-day5-agent2agent/README.md)
+## Remote Agent2Agent Communication [Link](./15-day5-agent2agent/README.md)
 
 This demo Demonstrates
 
@@ -14,12 +14,29 @@ This demo Demonstrates
 
 ![Agent 2 Agent workflow](./15-day5-agent2agent/images/remote-flow.png)
 
+How it works:
+1. Customer asks a product question to your Customer Support Agent
+2. Support Agent realizes it needs product information
+3. Support Agent calls the Product Catalog Agent via A2A protocol
+4. Product Catalog Agent (external vendor) returns product data
+5. Support Agent formulates an answer and responds to the customer
 
 Why this justifies A2A:
 - Product Catalog is maintained by an external vendor (you can't modify their code)
 - Different organizations with separate systems
 - Formal contract needed between services
 - Product Catalog could be in a different language/framework
+
+---
+
+#### Application build steps
+
+- Create the Product Catalog Agent - Build the vendor's agent with product lookup (This is remote Agent)
+- Expose via A2A - Make it accessible using to_a2a() (expose on port 8001)
+- Start the Server - Run the agent as a background service (use uvicorn to spin off the webserver at port 8001)
+- Create the Customer Support Agent - Build the consumer agent (This will be local to us)
+- Test Communication - See A2A in action with real queries (Check for response, call >> Local Agent >> Remote agent)
+
 
 ---
 
