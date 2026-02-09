@@ -4,19 +4,16 @@
 
 
 
-## Remote Agent2Agent Communication
+## Remote Agent2Agent Communication ![Link](./15-day5-agent2agent/agent.py)
 
 This demo Demonstrates
 
 - **Product Catalog Agent (exposed via A2A)** - External vendor service that provides product information
 - **Customer Support Agent (consumer)** - Internal agent that helps customers by querying product data
 
-┌──────────────────────┐           ┌──────────────────────┐
-│ Customer Support     │  ─A2A──▶  │ Product Catalog      │
-│ Agent (Consumer)     │           │ Agent (Vendor)       │
-│ Your Company         │           │ External Service     │
-│ (localhost:8000)     │           │ (localhost:8001)     │
-└──────────────────────┘           └──────────────────────┘
+
+![Agent 2 Agent workflow](./15-day5-agent2agent/images/remote-flow.png)
+
 
 Why this justifies A2A:
 - Product Catalog is maintained by an external vendor (you can't modify their code)
@@ -35,6 +32,8 @@ pip install -r requirements.txt
 
 ```
 ---
+
+
 #### Start the Product Catalog Agent Server
 
 ```bash
@@ -43,7 +42,17 @@ uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 
 python -W ignore::UserWarning -m uvicorn remote_a2a.product_catalog.agent-expose:a2a_app --host localhost --port 8001   # Ignore warnings
 
 ```
+---
 
+
+#### Start the Customer Agent
+
+```bash
+# Star the customer Agent and provide user query
+python agent
+python -W ignore::UserWarning -m agent   # Ignore warnings
+
+```
 ---
 
 
