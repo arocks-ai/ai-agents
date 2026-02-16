@@ -156,6 +156,14 @@ Understand how to maintain state and memory across multiple interactions using s
     )
 ```
 
+#### How to run
+Run directly using python instead of "adk web" so that we can simulate same or different sessions
+
+```
+    cd 5-session-state/basic_session/
+    python agent.py 
+```
+
 #### Testing - Same session, short-term-memory used
 ```
   $ python agent.py 
