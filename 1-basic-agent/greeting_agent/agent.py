@@ -47,6 +47,6 @@ root_agent = Agent(
     model = "gemini-2.0-flash",
     description = "An agent that greets users and provides weather and time information.",
     instruction = "I can answer questions about the weather and current time in various cities.",
-    # tools = [get_weather, get_current_time]
-    tools = [get_weather, google_search, get_current_time]
+    tools = [get_weather, get_current_time]
+    # tools = [get_weather, google_search, get_current_time]    # works only if bypass_multi_tools_limit flag is set
     )
