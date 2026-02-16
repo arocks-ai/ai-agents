@@ -69,7 +69,7 @@ You'll need to repeat this for each example project you want to run.
 
 Here's what you can learn from each example folder:
 
-### 1. Basic Agent
+### 1. Agent using tools
 - Basic agent with 2 custom tools (for checking weather and time).  
 - Simplfied to work for one city only (new york)
 
@@ -82,10 +82,106 @@ What is the time in new york
 ```
 
 ### 4. Structured Outputs
-Learn how to use Pydantic models with `output_schema` to ensure consistent, structured responses from your agents.
+Using Pydantic models with `output_schema` to ensure consistent, structured responses from the agents.
+
+LlMAgnet() will have the following data. EmailContent is a custom class with required fields of Pydantic models.
+```
+    output_schema=EmailContent,
+    output_key="email",
+```
+#### Example Query
+```
+Draft email requesting manager for 5 day PTO. 
+```
+```
+I am working on this project for 4 years on cirtial tasks.  Draft email asking manager requesting promption. 
+```
 
 ### 5. Sessions and State
 Understand how to maintain state and memory across multiple interactions using sessions.
+
+
+#### Create Runner: provide agent, app_name and session_service object
+```
+    APP_NAME = "agents"  # Application Name
+    USER_ID = "default"  # User
+    SESSION = "default"  # Session
+    MODEL_NAME = "gemini-2.5-flash-lite"
+
+    # Step 1: Create the LLM Agent
+    root_agent = Agent(
+        model=Gemini(model=MODEL_NAME),
+        name="basic_session",
+        description="A text chatbot",  # Description of the agent's purpose
+    )
+
+    # Step 2: Set up Session Management
+    # InMemorySessionService stores conversations in RAM (temporary)
+    session_service = InMemorySessionService()
+
+    # Step 3: Create the Runner
+    runner = Runner(
+        agent=root_agent,       # Agent name
+        app_name=APP_NAME,      # Application name to identify your app in the session service
+        session_service=session_service # Session service object to manage conversation history and state 
+    )
+```
+
+#### Create a new session or retrieve an existing one
+```
+    # Attempt to create a new session or retrieve an existing one
+    try:
+        session = await session_service.create_session(
+            app_name=app_name, user_id=USER_ID, session_id=session_name
+        )
+    except:
+        session = await session_service.get_session(
+            app_name=app_name, user_id=USER_ID, session_id=session_name
+        )
+```
+
+
+#### Same session used across the calls
+```
+    await run_session(
+        runner,
+        "Hi, I am rock ! What is the capital of United States?",
+        "short-term-memory",        # Session name "short-term-memory"
+    )
+
+    await run_session(
+        runner,
+        "Hello! What is my name ?",
+        "short-term-memory",        # Session name = Should match with preivous session to retrieve conversation history
+    )
+```
+
+#### Testing - Same session, short-term-memory used
+```
+  $ python agent.py 
+
+    ### Session: short-term-memory
+    User > Hi, I am rock ! What is the capital of United States?
+    gemini-2.5-flash-lite >  Hello Rock! The capital of the United States is Washington, D.C.
+
+    ### Session: short-term-memory
+    User > Hello! What is my name ?
+    gemini-2.5-flash-lite >  You told me your name is Rock.
+```
+
+#### Testing - When another session, short-term-memory-ANOTHER used for 2nd request
+```
+  $ python agent.py 
+
+    ### Session: short-term-memory
+    User > Hi, I am rock ! What is the capital of United States?
+    gemini-2.5-flash-lite >  Hello Rock! The capital of the United States is Washington, D.C.
+
+    ### Session: short-term-memory-ANOTHER
+    User > Hello! What is my name ?
+    gemini-2.5-flash-lite >  I do not have access to your personal information, including your name. Therefore, I cannot tell you what your name is.
+```
+
 
 ### 6. Persistent Storage
 Learn techniques for storing agent data persistently across sessions and application restarts.
