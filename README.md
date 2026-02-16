@@ -70,14 +70,16 @@ You'll need to repeat this for each example project you want to run.
 Here's what you can learn from each example folder:
 
 ### 1. Basic Agent
-Basic agent with 2 custom tools (for checking weather and time).  Simplfied to work for one city only (new york)
-Query - what is the weather in new york.
+- Basic agent with 2 custom tools (for checking weather and time).  
+- Simplfied to work for one city only (new york)
 
-### 2. Tool Agent
-Learn how to enhance agents with tools that allow them to perform actions beyond just generating text.
-
-### 3. LiteLLM Agent
-Example of using LiteLLM to abstract away LLM provider details and easily switch between different models.
+#### Example Query
+```
+What is the weather in new york
+```
+```
+What is the time in new york
+```
 
 ### 4. Structured Outputs
 Learn how to use Pydantic models with `output_schema` to ensure consistent, structured responses from your agents.
