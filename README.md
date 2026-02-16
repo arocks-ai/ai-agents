@@ -185,4 +185,7 @@ python -W ignore::UserWarning -m agent   # Ignore warnings
 
 
 #### References
-https://www.kaggle.com/code/ashokai2/day-5a-agent2agent-communication
+- [ADK Structured Data Documentation](https://google.github.io/adk-docs/agents/llm-agents/#structuring-data-input_schema-output_schema-output_key)
+- [Pydantic Documentation](https://docs.pydantic.dev/latest/) 
+- [Kaggle 5 day AI Agent course with ADK](https://www.kaggle.com/code/ashokai2/day-5a-agent2agent-communication)
+- [ADK Master Class YT - Beginner to Pro](https://www.youtube.com/watch?v=P4VFL9nIaIA&list=WL&index=16)
