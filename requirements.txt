@@ -7,3 +7,4 @@ pydantic>=2.7.4
 sqlalchemy      # for DB access and management
 greenlet        # sencondary dependency for SQLAlchemy
 
+aiosqlite

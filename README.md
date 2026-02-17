@@ -102,7 +102,7 @@ Understand how to maintain state and memory across multiple interactions using s
 
 
 #### Create Runner: provide agent, app_name and session_service object
-```
+```python
     APP_NAME = "agents"  # Application Name
     USER_ID = "default"  # User
     SESSION = "default"  # Session
@@ -128,7 +128,7 @@ Understand how to maintain state and memory across multiple interactions using s
 ```
 
 #### Create a new session or retrieve an existing one
-```
+```python
     # Attempt to create a new session or retrieve an existing one
     try:
         session = await session_service.create_session(
@@ -142,7 +142,7 @@ Understand how to maintain state and memory across multiple interactions using s
 
 
 #### Same session used across the calls
-```
+```python
     await run_session(
         runner,
         "Hi, I am rock ! What is the capital of United States?",
@@ -159,14 +159,14 @@ Understand how to maintain state and memory across multiple interactions using s
 #### How to run
 Run directly using python instead of "adk web" so that we can simulate same or different sessions
 
-```
+```bash
     cd 5-session-state/basic_session/
     python agent.py 
 ```
 
-#### Testing - Same session, short-term-memory used
-```
-  $ python agent.py 
+#### Testing - Both the queries are of same session
+#### session name = "short-term-memory"
+```bash
 
     ### Session: short-term-memory
     User > Hi, I am rock ! What is the capital of United States?
@@ -177,10 +177,9 @@ Run directly using python instead of "adk web" so that we can simulate same or d
     gemini-2.5-flash-lite >  You told me your name is Rock.
 ```
 
-#### Testing - When another session, short-term-memory-ANOTHER used for 2nd request
-```
-  $ python agent.py 
-
+#### Testing -  Both the queries are of different sessions.
+#### session name = "short-term-memory" (1st query)   session name = "short-term-memory" (2nd query)
+```bash
     ### Session: short-term-memory
     User > Hi, I am rock ! What is the capital of United States?
     gemini-2.5-flash-lite >  Hello Rock! The capital of the United States is Washington, D.C.
@@ -193,6 +192,46 @@ Run directly using python instead of "adk web" so that we can simulate same or d
 
 ### 6. Persistent Storage
 Learn techniques for storing agent data persistently across sessions and application restarts.
+
+```bash
+
+  # Modify the source code like below
+  db_url = "sqlite+aiosqlite:///sessions.db"  
+  session_service = DatabaseSessionService(db_url=db_url)
+
+  # Install aiosqlite package
+  pip install aiosqlite
+
+```
+
+#### How to run
+Run directly using python instead of "adk web" so that we can simulate same or different sessions
+
+```bash
+    cd 5-session-state/basic_session/
+    python agent.py 
+```
+
+#### Testing - First Session
+#### Query 1, Query 2
+```bash
+
+    ### Session: short-term-memory
+    User > Hi, I am rock ! What is the capital of United States?
+    gemini-2.5-flash-lite >  Hello Rock! The capital of the United States is Washington, D.C.
+
+    ### Session: short-term-memory
+    User > Hello! What is my name ?
+    gemini-2.5-flash-lite >  You told me your name is Rock.
+```
+
+#### Testing - Second Session (Application closed and ran again)
+#### Query 2  Only (Name retrived from the Database)
+```bash
+    ### Session: short-term-memory
+    User > Hello! What is my name ?
+    gemini-2.5-flash-lite >  Your name is Rock.
+```
 
 ### 7. Multi-Agent
 See how to orchestrate multiple specialized agents working together to solve complex tasks.
