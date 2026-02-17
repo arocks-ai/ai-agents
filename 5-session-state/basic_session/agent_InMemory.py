@@ -5,12 +5,11 @@ from dotenv import load_dotenv
 from google.adk.agents import Agent, LlmAgent
 from google.adk.apps.app import App, EventsCompactionConfig
 from google.adk.models.google_llm import Gemini
-from google.adk.sessions import InMemorySessionService, DatabaseSessionService
+from google.adk.sessions import InMemorySessionService
 from google.adk.runners import Runner
 from google.adk.tools.tool_context import ToolContext
 from google.genai import types
 from pydantic import BaseModel, Field
-
 
 load_dotenv()
 
@@ -27,16 +26,12 @@ MODEL_NAME = "gemini-2.5-flash-lite"
 root_agent = Agent(
     model=Gemini(model=MODEL_NAME),
     name="basic_session",
-    description="A text chatbot using Database Session",  # Description of the agent's purpose
+    description="A text chatbot",  # Description of the agent's purpose
 )
 
 # Step 2: Set up Session Management
-# DatabaseSessionService for persistent session storage (sessions will be stored in a SQLite database file)
-# db_url = "sqlite:///sessions.db"              # Doesn't work for async methods
-db_url = "sqlite+aiosqlite:///sessions.db"      # Use the aiosqlite driver for async support, Install driver using 'pip install aiosqlite'
-session_service = DatabaseSessionService(db_url=db_url)
-
-
+# InMemorySessionService stores conversations in RAM (temporary)
+session_service = InMemorySessionService()
 
 # Step 3: Create the Runner
 runner = Runner(
@@ -95,16 +90,16 @@ async def run_session(
         print("No queries!")
 
 async def main():
-    # await run_session(
-    #     runner,
-    #     "Hi, I am rock ! What is the capital of United States?",
-    #     "short-term-memory",        # Session name "short-term-memory"
-    # )
+    await run_session(
+        runner,
+        "Hi, I am rock ! What is the capital of United States?",
+        "short-term-memory",        # Session name "short-term-memory"
+    )
 
     await run_session(
         runner,
         "Hello! What is my name ?",
-        "short-term-memory",        # Session name = Should match with preivous session to retrieve conversation history
+        "short-term-memory-ANOTHER",        # Session name = Should match with preivous session to retrieve conversation history
     )
 
 
