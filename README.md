@@ -69,7 +69,7 @@ You'll need to repeat this for each example project you want to run.
 
 Here's what you can learn from each example folder:
 
-### 1. Agent using tools
+### 01. Agent using tools
 - Basic agent with 2 custom tools (for checking weather and time).  
 - Simplfied to work for one city only (new york)
 
@@ -80,8 +80,15 @@ What is the weather in new york
 ```
 What is the time in new york
 ```
+---
 
-### 4. Structured Outputs
+### 01. Deploy into Cloud Run
+Cloud Run Deploy instruction are [here](./1-basic-agent/README.md)
+
+---
+
+
+### 04. Structured Outputs
 Using Pydantic models with `output_schema` to ensure consistent, structured responses from the agents.
 
 LlMAgnet() will have the following data. EmailContent is a custom class with required fields of Pydantic models.
