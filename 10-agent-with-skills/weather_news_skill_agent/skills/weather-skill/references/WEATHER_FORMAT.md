@@ -23,8 +23,11 @@ At small scale this feels academic. At production scale - when your agent has do
 The folder structure for your weather skill now looks like this:
 ```
 
+
+```
 skills/
 └── weather_skill/
     ├── SKILL.md                        ✅ written
     └── references/
         └── WEATHER_FORMAT.md           ✅ written
+```
