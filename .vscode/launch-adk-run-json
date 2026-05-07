@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ADK Run: Weather News Agent",
+            "type": "python",
+            "request": "launch",
+            "module": "google.adk.cli",
+            "args": [
+                "run",
+                "10-agent-with-skills/weather_news_skill_agent"
+            ],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "PYTHONWARNINGS": "ignore"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}
