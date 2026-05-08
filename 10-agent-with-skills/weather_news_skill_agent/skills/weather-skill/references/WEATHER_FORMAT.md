@@ -4,16 +4,16 @@
 Present as a table:
 | Day  | High | Low  | Condition     |
 |------|------|------|---------------|
-| Mon  | 28°C | 19°C | Partly cloudy |
+| Mon  | 82°F | 66°F | Partly cloudy |
 
 ## For severe weather
 Always lead with a ⚠️ warning before the weather data and recommend
 appropriate precautions (umbrella, avoiding travel, etc.).
 
 ## Units reference
-- Default: Celsius (°C), wind in km/h, precipitation in mm
-- If the user mentions "imperial", switch to: Fahrenheit (°F), mph, inches
-- If the user is clearly from the US (mentions US cities), offer both units
+- Default: Fahrenheit (°F), wind in mph, precipitation in inches
+- If the user mentions "metric" or "celsius", switch to: Celsius (°C), km/h, mm
+- If the user is international, offer both units for clarity.
 
 ```
 This file is L3 - extended resources. Here's why it's in a separate file rather than in `SKILL.md` itself, and why that distinction matters enormously in production:

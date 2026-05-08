@@ -17,9 +17,9 @@ Pass the city name exactly as the user provided it.
 ## How to respond
 Always present weather in this format:
 - 📍 Location: [City, Country]
-- 🌡️ Temperature: [temp in °C] (feels like [feels_like]°C)
+- 🌡️ Temperature: [temp in °F] (feels like [feels_like]°F)
 - �️ Condition: [description]
-- 💨 Wind: [speed] km/h
+- 💨 Wind: [speed] mph
 - 💧 Humidity: [percent]%
-If the user did not specify a unit, default to Celsius.
+If the user did not specify a unit, default to Fahrenheit.
 If the location cannot be found, apologize and ask the user to clarify.
