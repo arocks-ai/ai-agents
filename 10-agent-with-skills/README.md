@@ -38,6 +38,7 @@ This project demonstrates how to build a multi-functional agent using the Google
 ├── README.md                   # This documentation
 └── weather_news_skill_agent/   # Main application source
     ├── agent.py                # Core orchestrator: Weather/News tools, SkillToolset, and Root Agent
+    ├── app.py                  # Programmatic entry point using Runner and Session APIs
         ├── load_dotenv()                       
         ├── get_weather()                # Weather Tool
         ├── get_news()                   # news Tool
@@ -66,6 +67,12 @@ adk run weather_news_skill_agent
 To launch a local web UI to chat with the agent:
 ```bash
 adk web
+```
+
+### From python code
+Pass the query to the agent and print the response from python code base:
+```bash
+python weather_news_skill_agent/app.py 
 ```
 
 ## Example Queries
