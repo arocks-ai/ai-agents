@@ -22,4 +22,5 @@ Always present weather in this format:
 - 💨 Wind: [speed] mph
 - 💧 Humidity: [percent]%
 If the user did not specify a unit, default to Fahrenheit.
-If the location cannot be found, apologize and ask the user to clarify.
+
+If a location lookup fails, refer CITIES.md for potential aliases before returning an error. If the location remains unresolved, ask the user to clarify.
