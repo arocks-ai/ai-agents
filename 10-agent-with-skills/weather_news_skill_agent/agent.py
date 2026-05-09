@@ -42,7 +42,7 @@ def get_weather(city: str) -> dict:
 
 
 
-
+# Inline skills
 def create_news_skill(api_key: str) -> models.Skill:
     """Creates the news summarizer skill with runtime API configuration."""
 
@@ -52,7 +52,7 @@ def create_news_skill(api_key: str) -> models.Skill:
             description=(
                 "Fetches and summarizes the latest news headlines. "
                 "Use this skill when the user asks about news, current events, "
-                "headlines, what's happening, or trending topics. "
+                "headlines, what's happening, trending topics or sports results. "
                 "Can filter by category: technology, business, sports, health, science."
             ),
         ),
@@ -78,7 +78,7 @@ def create_news_skill(api_key: str) -> models.Skill:
                     "# Available News Categories\n"
                     "- technology: Tech, AI, software, hardware news\n"
                     "- business: Finance, markets, economy\n"
-                    "- sports: All sports news\n"
+                    "- sports: All sports news including cricket, NFL, basketball, football, tennis\n"  # ← updated
                     "- health: Medical, wellness, public health\n"
                     "- science: Research, space, discoveries\n"
                     "- general: Top stories across all topics (default)\n"
@@ -86,7 +86,6 @@ def create_news_skill(api_key: str) -> models.Skill:
             }
         ),
     )
-
 
 
 
