@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2024-03-20T12:00:00.000Z" agent="GeminiCodeAssist" version="21.0.0" type="device">
+  <diagram id="weather-news-agent-arch" name="Architecture">
+    <mxGraphModel dx="1000" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- User Query -->
+        <mxCell id="user_query" value="User Query" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="314" y="20" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- app.py Layer -->
+        <mxCell id="app_layer" value="app.py (Execution Layer)&#xa;- Runner&#xa;- InMemorySessionService" style="swimlane;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="100" y="120" width="627" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- agent.py Layer -->
+        <mxCell id="agent_layer" value="agent.py (Intelligence Layer)" style="swimlane;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="40" y="260" width="747" height="460" as="geometry" />
+        </mxCell>
+
+        <!-- root_agent -->
+        <mxCell id="root_agent" value="root_agent (Agent)&#xa;Gemini Orchestrator" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="agent_layer">
+          <mxGeometry x="173.5" y="40" width="400" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Skill Toolset -->
+        <mxCell id="toolset" value="SkillToolset (Router)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="agent_layer">
+          <mxGeometry x="273.5" y="130" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Skills -->
+        <mxCell id="weather_skill" value="Weather Skill&#xa;(File-Based)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="agent_layer">
+          <mxGeometry x="60" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="news_skill" value="News Skill&#xa;(Inline)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="agent_layer">
+          <mxGeometry x="293.5" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="joke_skill" value="Joke Skill&#xa;(Inline)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="agent_layer">
+          <mxGeometry x="527" y="250" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Tools -->
+        <mxCell id="weather_tool" value="get_weather() Tool" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="agent_layer">
+          <mxGeometry x="60" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="news_tool" value="get_news() Tool" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="agent_layer">
+          <mxGeometry x="293.5" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="llm_logic" value="Pure LLM Logic" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="agent_layer">
+          <mxGeometry x="527" y="360" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- APIs -->
+        <mxCell id="wttr_api" value="wttr.in API" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;" vertex="1" parent="1">
+          <mxGeometry x="100" y="760" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="news_api" value="NewsAPI" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#e6d0de;strokeColor=#996185;" vertex="1" parent="1">
+          <mxGeometry x="333.5" y="760" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="c1" edge="1" parent="1" source="user_query" target="app_layer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c2" edge="1" parent="1" source="app_layer" target="root_agent">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c3" edge="1" parent="agent_layer" source="root_agent" target="toolset">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c4" edge="1" parent="agent_layer" source="toolset" target="weather_skill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c5" edge="1" parent="agent_layer" source="toolset" target="news_skill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c6" edge="1" parent="agent_layer" source="toolset" target="joke_skill">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c7" edge="1" parent="agent_layer" source="weather_skill" target="weather_tool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c8" edge="1" parent="agent_layer" source="news_skill" target="news_tool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c9" edge="1" parent="agent_layer" source="joke_skill" target="llm_logic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c10" edge="1" parent="1" source="weather_tool" target="wttr_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="c11" edge="1" parent="1" source="news_tool" target="news_api">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
