@@ -6,6 +6,7 @@ This project demonstrates how to build a multi-functional agent using the Google
 
 - **Weather Skill (File-Based):** Loaded from the `skills/weather-skill` directory. It utilizes `load_skill_from_dir` to import instructions and metadata.
 - **News Skill (Inline):** Dynamically created at runtime using a factory function.
+- **Joke Skill (Inline):** Dynamically created at runtime to provide clean, clever humor and puns.
 - **Skill Toolset:** Uses `SkillToolset` to manage multiple skills, allowing the agent to intelligently route queries to the correct specialist.
 - **Real-time Tools:** Integrated with `wttr.in` for weather data and `NewsAPI` for current headlines.
 
@@ -37,13 +38,14 @@ This project demonstrates how to build a multi-functional agent using the Google
 ├── requirements.txt            # Project dependencies (google-adk, httpx, etc.)
 ├── README.md                   # This documentation
 └── weather_news_skill_agent/   # Main application source
-    ├── agent.py                # Core orchestrator: Weather/News tools, SkillToolset, and Root Agent
+    ├── agent.py                # Core orchestrator: Weather/News/Joke tools, SkillToolset, and Root Agent
     ├── app.py                  # Programmatic entry point using Runner and Session APIs
         ├── load_dotenv()                       
         ├── get_weather()                # Weather Tool
         ├── get_news()                   # news Tool
         ├── weather_skill = load_skill_from_dir()       # Weather skill - file based
         ├── news_skill = create_news_skill()            # Dynamic news skill
+        ├── jokes_skill = create_joke_skill()           # Dynamic joke skill
         ├── my_toolset = skill_toolset.SkillToolset()   # Skill toolset for routing queries
         ├── root_agent = Agent()                        # Agent     
             ├── tools=[my_toolset, get_weather, get_news]       # tools list and skillset Menu 
@@ -80,5 +82,6 @@ python weather_news_skill_agent/app.py
 - "What is the weather like in London today?"
 - "Give me a summary of the latest technology news."
 - "I'm planning a trip to Tokyo. What's the weather there, and is there any big news I should know about?"
+- "Tell me a joke about computers."
 
 ---

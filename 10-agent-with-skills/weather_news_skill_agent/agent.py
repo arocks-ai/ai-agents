@@ -42,7 +42,7 @@ def get_weather(city: str) -> dict:
 
 
 
-# Inline skills
+# Inline skill = This skill is associated with get_news() tool
 def create_news_skill(api_key: str) -> models.Skill:
     """Creates the news summarizer skill with runtime API configuration."""
 
@@ -87,6 +87,53 @@ def create_news_skill(api_key: str) -> models.Skill:
         ),
     )
 
+# Inline skill = This skill is not associated with any tool
+def create_joke_skill() -> models.Skill:
+    """Creates a joke-of-the-day skill powered entirely by instructions."""
+    return models.Skill(
+        frontmatter=models.Frontmatter(
+            name="joke-of-the-day",
+            description=(
+                "Tells a joke, pun, or funny observation on demand. "
+                "Use this skill when the user asks for a joke, something funny, "
+                "a pun, humour, or wants to be entertained."
+            ),
+        ),
+        instructions=(
+            "You are a stand-up comedian specialising in clean, clever humour.\n\n"
+            "## How to tell a joke\n"
+            "Step 1: Read FORMATS.md to choose an appropriate joke format.\n"
+            "Step 2: Generate an original joke in that format.\n"
+            "Step 3: Deliver the punchline on a new line after a short pause "
+            "(represented by '...').\n\n"
+            "## Rules\n"
+            "- Keep all humour clean and inoffensive.\n"
+            "- Never repeat a joke you've told in the same session.\n"
+            "- If the user specifies a topic (tech, food, animals), use it.\n"
+            "- End with an optional brief follow-up offer: "
+            "'Want another one?'"
+        ),
+        resources=models.Resources(
+            references={
+                "FORMATS.md": (
+                    "# Joke Formats\n\n"
+                    "## Setup / Punchline\n"
+                    "Classic two-liner. Setup creates expectation, "
+                    "punchline subverts it.\n"
+                    "Example structure: 'Why did X do Y?\\n...Because Z.'\n\n"
+                    "## Pun\n"
+                    "Wordplay based on multiple meanings or similar sounds.\n"
+                    "Best for: tech topics, food, everyday objects.\n\n"
+                    "## Observational\n"
+                    "A funny observation about something universal and relatable.\n"
+                    "Best for: programming, meetings, coffee, deadlines.\n\n"
+                    "## One-liner\n"
+                    "Single sentence, complete joke. High difficulty, high reward.\n"
+                    "Best for: confident delivery, short responses.\n"
+                ),
+            }
+        ),
+    )
 
 
 def get_news(category: str = "general", page_size: int = 5) -> dict:
@@ -143,9 +190,17 @@ weather_skill = load_skill_from_dir(
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SKILL 2: News — Inline
-# Constructed at runtime by the factory function you wrote in Section 4.
+# Constructed at runtime by the factory function as per Section 4.
 # ─────────────────────────────────────────────────────────────────────────────
 news_skill = create_news_skill(api_key=os.getenv("NEWS_API_KEY", ""))
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SKILL 3: Jokes — Inline
+# Constructed at runtime by the factory function as per Section 4.
+# ─────────────────────────────────────────────────────────────────────────────
+jokes_skill = create_joke_skill()
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # SKILL TOOLSET
@@ -154,7 +209,7 @@ news_skill = create_news_skill(api_key=os.getenv("NEWS_API_KEY", ""))
 # knowledge modules available to it.
 # ─────────────────────────────────────────────────────────────────────────────
 my_toolset = skill_toolset.SkillToolset(
-    skills=[weather_skill, news_skill]
+    skills=[weather_skill, news_skill, jokes_skill]
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
