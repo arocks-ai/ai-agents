@@ -69,18 +69,37 @@ When a new task is encountered, the agent's **Skill Creator** module kicks in �
 ```
 SelfExtendingAgent_ADKGoogle/
 │
-├── 🐍 backend/                  # ADK-powered Python agent core
-│   └── agent logic, skill registry, tool definitions
+├── 🐍 backend/                  # Core Python services for orchestration and API
+│   ├── agent_runner.py          # Wraps ADK agent for FastAPI with SSE streaming
+│   ├── __init__.py              # Package initialization
+│   ├── main.py                  # FastAPI server entry point and API definitions
+│   ├── orchestrator.py          # Manages the 2-pass learning and answering workflow
+│   ├── skill_matcher.py         # Semantic intent router for selecting existing skills
+│   └── skills_scanner.py        # Scans filesystem for available skill metadata
 │
-├── 🎨 frontend/                 # Conversational UI
-│   └── HTML + CSS + JS chat interface
+├── 🎨 frontend/                 # Conversational Web UI
+│   ├── app.js                   # Frontend logic for UI state and SSE handling
+│   ├── index.html               # Main chat interface template
+│   └── style.css                # UI styling and layout
 │
-├── 🤖 dev_assistant_app/        # ADK Dev Assistant application
-│   └── skill-aware orchestration layer
+├── 🤖 dev_assistant_app/        # ADK Agent Application package
+│   ├── agent.py                 # Agent configuration, toolset, and instructions
+│   ├── __init__.py              # Package initialization
+│   ├── skills/                  # Library of technical skill definitions
+│   │   ├── code-review/         # Built-in skill for code analysis
+│   │   ├── git-workflow/        # Built-in skill for Git operations
+│   │   └── generated/           # Directory for AI-created skills
+│   │       ├── dockerfile-basics/
+│   └── tools/                   # Custom agent tools
+│       ├── __init__.py          # Package initialization
+│       ├── skill_writer.py      # Tool for persisting new skills to disk
+│       └── web_search_tool.py   # Tool for real-time technical research
 │
-├── 🔁 repro_answer.py           # Reproducible answer generation
-├── 📦 requirements.txt          # Python dependencies
-└── 🚀 run.sh                    # One-command launcher
+├── 🔁 repro_answer.py           # Script to test the answer-only runner
+├── 📦 requirements.txt          # Project dependencies (ADK, FastAPI, etc.)
+├── 🚀 run.sh                    # One-command startup script
+├── 🖼️ Skill-Creator-Demo.png     # Visual demonstration of the agent
+└── 🧪 test_qwen.py              # Script to verify local model inference
 ```
 
 
