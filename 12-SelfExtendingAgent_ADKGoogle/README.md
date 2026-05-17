@@ -160,6 +160,16 @@ adk run dev_assistant_app
 
 The app will be available at `http://localhost:8000`.
 
+
+### Quck Test Agnet/skill
+
+```bash
+# Test an existing Skill, change skill based on query 
+python test_qwen.py 
+
+```
+
+
 ---
 
 ## 🧩 Core Concepts

@@ -1,0 +1,40 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // {
+        //     "name": "ADK Run: Self Extending Agent",
+        //     "type": "python",
+        //     "python": "${workspaceFolder}/../.venv/bin/python",
+        //     "request": "launch",
+        //     "module": "google.adk.cli",
+        //     "args": [
+        //         "run",
+        //         "dev_assistant_app",
+        //         "--agent-attr",
+        //         "get_agent"
+        //     ],
+        //     "cwd": "${workspaceFolder}",
+        //     "envFile": "${workspaceFolder}/dev_assistant_app/.env",
+        //     "env": {
+        //         "PYTHONWARNINGS": "ignore"
+        //     },
+        //     "console": "integratedTerminal"
+        // },
+        {
+            "name": "Full App: FastAPI Backend",
+            "type": "python",
+            "python": "${workspaceFolder}/../.venv/bin/python",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "backend.main:app",
+                "--host", "0.0.0.0",
+                "--port", "8000",
+                "--reload"
+            ],
+            "cwd": "${workspaceFolder}",
+            "envFile": "${workspaceFolder}/dev_assistant_app/.env",
+            "console": "integratedTerminal"
+        }
+    ]
+}
