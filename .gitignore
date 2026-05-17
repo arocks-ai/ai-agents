@@ -81,3 +81,11 @@ venv.bak/
 backup/
 backup
 *.db
+
+# 12-SelfExtendingAgent_ADKGoogle
+test_ddg.py
+test_gemini.py
+test_tavily.py
+
+
+

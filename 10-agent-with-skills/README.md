@@ -2,8 +2,6 @@
 
 This project demonstrates how to build a multi-functional agent using the Google Agent Development Kit (ADK). It showcases the use of **Skills**—specialized modules that encapsulate specific domain knowledge and instructions—and how to bundle them using a `SkillToolset`.
 
-
-
 ## Features
 
 - **Weather Skill (File-Based):** Loaded from the `skills/weather-skill` directory. It utilizes `load_skill_from_dir` to import instructions and metadata.
